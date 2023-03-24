@@ -1,34 +1,18 @@
 <?php
+$servidor = "localhost";
+$usuario="root";
+$contraseña="";
+$archibo="login";
 
-//prueva=login -datos=cliente
-//conectar
+$conexion = mysqli_connect($servidor,$usuario ,$contraseña ,$archibo );
 
-$conectar=@mysqli_connect("localhost", "root", "");
-//verificacion de conexion
-if(!$conectar){
-    echo"No se pudo coectar Con el servidor";
-}else{
-    $base = mysqli_select_db('login');
-    if(!$base){
-        echo"No se encontro la base de datos";
-    }
-}
+if(isset($_POST['Enviar'])){
+$nombre=$_POST['Nombre'];
+$gmail=$_POST['Gmail'];
+$contra=$_POST['Contraseña'];
 
-//Recuperar bariables
-
-$Nombre=$_POST['nombre'];
-$Gmail=$_POST['gmail'];
-$Contraseña=$_POST['contraseña'];
-$sql="INSERT INTO datos VALUES  ('$Nombre','$Gmail','$Contraseña')";
-
-//Ejecutamos la sentencia de sql
-
-$ejecutar = mysql_query($sql);
-//verificamos la ejecucion
-
-if(!$ejecutar){
-    echo"Hubo algun error";
-}else{
-"Datos guardados correctamente <br><a href='index.html'>Volver</a>";
+$insertarDatos = "INSERT INTO cliente VALUES('$nombre','$gmail','$contra')";
+$sejecutarInsertar = mysqli_query($conexion,$insertarDatos);
+echo"Tu comado fue emviado";
 }
 ?>
