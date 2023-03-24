@@ -2,12 +2,13 @@
 
 //prueva=login -datos=cliente
 //conectar
-$conectar = mysql_connect('localhost','');
+
+$conectar=@mysqli_connect("localhost", "root", "");
 //verificacion de conexion
 if(!$conectar){
     echo"No se pudo coectar Con el servidor";
 }else{
-    $base = mysql_select_db('login');
+    $base = mysqli_select_db('login');
     if(!$base){
         echo"No se encontro la base de datos";
     }
