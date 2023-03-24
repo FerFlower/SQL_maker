@@ -1,4 +1,5 @@
 <?php
+echo"Tu servidor no se pudo conectar";
 $servidor = "localhost";
 $usuario="root";
 $contraseña="";
@@ -13,6 +14,6 @@ $contra=$_POST['Contraseña'];
 
 $insertarDatos = "INSERT INTO cliente VALUES('$nombre','$gmail','$contra')";
 $sejecutarInsertar = mysqli_query($conexion,$insertarDatos);
-echo"Tu comado fue emviado";
+
 }
 ?>
